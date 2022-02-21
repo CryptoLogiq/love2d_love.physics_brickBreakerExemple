@@ -98,6 +98,18 @@ end
 ```
 
 ## Rendu Final du pojet Complet :
+
+en rose nos element **static** : les murs
+
+en bleu un element **static** que j'utilise comme trigger : soit un mur que je mets dans une table pour pouvoir l'appeler dans l'update de la balle
+-si collision : reset de la balle au dessus du pad si collision avec le trigger
+
+en vert **dynamic** : la balle, elle subit la gravité, et collisionne avec toutes les catégories de colliders
+le pad et les briques sont en kinematic : la gravité ne s'applique pas
+
+en bkand les elements **kinematic** : le pad et les bricks.
+-- *Ps : si une brick est collisionné, elle passe alors en **dynamic** et je la sors du groupe de collision des autres objets*
+
 ![Rendu Complet](https://i.gyazo.com/f8787c7d655a184027e3c06d7b6ef7f4.gif)
 
 -> plus d'infos sur le wiki de love2d : [Love2d Physics](https://love2d.org/wiki/love.physics_(Fran%C3%A7ais))
