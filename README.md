@@ -18,10 +18,13 @@ C'est le monde qui  mets a jour les objets qu'il possede via : `monde:update(dt)
 chacun des éléments du jeu possède un Body, un Shape et une Fixture et peux aussi posséder des joints.
 
 1- le Body est l'élément principale qui sert de référence a l'objet, il possède les propriétés de l'objet et sa position en un point défini a son centre (x,y) (a voir comme un cercle), c'est aussi lui a qui on insuffle des impulsion ou des forces pour les déplacements.
- le body possède un type de collider: static / dynamic / kinematic
-static : ne bouges pas !
-dynamic : bougent tout seul selon le monde et les impulsion / forces qu'il subit et les collisions qu'il subis egalement
-kinematic : peut bouger mais seulement via une update de sa position. Généralement avec le code suivant :  `body:setPosition(x,y)`
+ le body possède un type de collider: static / dynamic / kinematic.
+
+-static : ne bouges pas !
+
+-dynamic : bougent tout seul selon le monde et les impulsion / forces qu'il subit et les collisions qu'il subis egalement
+
+-kinematic : peut bouger mais seulement via une update de sa position. Généralement avec le code suivant :  `body:setPosition(x,y)`
  
 2- les collision sont géré avec un Shape. Celui-ci est une forme géométrique soit : rectangle, cercle ou polygone.
 
