@@ -29,6 +29,72 @@ kinematic > peut bouger mais seulement via une update de sa position. Générale
 
 les joints (généralement des points ) qui rassemblent plusieurs body entre eux (non utilisés dans l'exemple)... mais on peut facilement imaginer ceci avec un camion qui aurait une remorque attaché à celui-ci, quand la remorque collisionne > le camion subis aussi la collision via le joint !
 
-![Rendu](https://i.gyazo.com/f8787c7d655a184027e3c06d7b6ef7f4.gif)
+## Explications Rapide du processus
 
-plus d'infos : [Love2d Physics](https://love2d.org/wiki/love.physics_(Fran%C3%A7ais))
+1 creer le monde : 
+```lua
+ world = love.physics.newWorld(grravity_x, gravity_y, sleeping_bool)
+```
+2 creer un objet (ball par exemple) 
+```lua
+ ball={}
+```
+3 lui ajouter un body 
+```lua
+ ball.body = love.physics.newBody(world, x, y, collider_type) -- x,y is pos center of objet
+ choix du colidder type : dynamic / kinematic / static
+```
+4 lui ajouter un shape 
+```lua
+-- choix entre : rectangle / cercle / polygon(vertices)
+ ball.shape = love.physics.newCircleShape( rayon ) -- example cercle (parfait pour notre balle)
+ ball.shape = love.physics.newRectangleShape( w, h) -- example rectangle
+ ball.shape = love.physics.newPolygonShape( x1, y1, x2, y2, x3, y3, ... ) -- example polygon, on donne les vertices de nos points
+```
+5 on lie le body et le shape via une fixture 
+```lua
+ ball.fixture = love.physics.newFixture(brick.body, brick.shape)
+```
+6 on donne un update a notre objet (ball) pour controler ses collisions : 
+```lua
+ function ball:update(dt)
+  if ball.body:isTouching(pad.body) then -- ball touche pad ?
+    -- je fais quoi ?
+  elseif ball.body:isTouching(wallTrigger.body) then -- ball touche le bas de l'ecran ?
+    -- je fais quoi ?
+  end
+ end
+```
+
+7 notre main ressemble a ça
+```lua
+
+world = {}
+ball = {}
+
+function love.load()
+ world = love.physics.newWorld(0, 200, true)
+ --
+ ball.body = love.physics.newBody(world, x, y, "dynamic")
+ ball.shape = love.physics.newCircleShape( rayon )
+ ball.fixture = love.physics.newFixture(brick.body, brick.shape)
+end
+
+function ball:update(dt)
+  if ball.body:isTouching(pad.body) then -- ball touche pad ?
+    -- je fais quoi ?
+  elseif ball.body:isTouching(wallTrigger.body) then -- ball touche le bas de l'ecran ?
+    -- je fais quoi ?
+  end
+end
+
+function love.update(dt)
+ world:update(dt)
+ ball:update(dt)
+end
+```
+
+## Rendu Final du pojet Co^mplet :
+![Rendu Complet](https://i.gyazo.com/f8787c7d655a184027e3c06d7b6ef7f4.gif)
+
+-> plus d'infos sur le wiki de love2d : [Love2d Physics](https://love2d.org/wiki/love.physics_(Fran%C3%A7ais))
