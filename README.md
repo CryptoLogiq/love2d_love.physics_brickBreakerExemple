@@ -1,6 +1,6 @@
 # love2d_love.physics_brickBreakerrExemple
 
-### Comment ça marche dans love.physics dans LOVE2D ? 
+### Comment ça marche love.physics dans LOVE2D ? 
 
 love.physics utilise une librairie de simulation physique dans un monde en 2d.
 
