@@ -32,33 +32,33 @@ chacun des éléments du jeu possède un Body, un Shape et une Fixture et peux a
 
 les joints (généralement des points ) qui rassemblent plusieurs body entre eux (non utilisés dans l'exemple)... mais on peut facilement imaginer ceci avec un camion qui aurait une remorque attaché à celui-ci, quand la remorque collisionne ALORS le camion subis aussi la collision via le joint !
 
-## Explications Rapide du processus
+## Explications Rapide du processus en 7 étapes :
 
-1 creer le monde : 
+1. creer le monde : 
 ```lua
  world = love.physics.newWorld(grravity_x, gravity_y, sleeping_bool)
 ```
-2 creer un objet (ball par exemple) 
+2. creer un objet (ball par exemple) 
 ```lua
  ball={}
 ```
-3 lui ajouter un body 
+3. lui ajouter un body 
 ```lua
  ball.body = love.physics.newBody(world, x, y, collider_type) -- x,y is pos center of objet
  choix du colidder type : dynamic / kinematic / static
 ```
-4 lui ajouter un shape 
+4. lui ajouter un shape 
 ```lua
 -- choix entre : rectangle / cercle / polygon(vertices)
  ball.shape = love.physics.newCircleShape( rayon ) -- example cercle (parfait pour notre balle)
  ball.shape = love.physics.newRectangleShape( w, h) -- example rectangle
  ball.shape = love.physics.newPolygonShape( x1, y1, x2, y2, x3, y3, ... ) -- example polygon, on donne les vertices de nos points
 ```
-5 on lie le body et le shape via une fixture 
+5. on lie le body et le shape via une fixture 
 ```lua
  ball.fixture = love.physics.newFixture(brick.body, brick.shape)
 ```
-6 on donne un update a notre objet (ball) pour controler ses collisions : 
+6. on donne un update a notre objet (ball) pour controler ses collisions : 
 ```lua
  function ball:update(dt)
   if ball.body:isTouching(pad.body) then -- ball touche pad ?
@@ -69,7 +69,7 @@ les joints (généralement des points ) qui rassemblent plusieurs body entre eux
  end
 ```
 
-7 notre main ressemble a ça
+7. notre main ressemble a ça
 ```lua
 
 world = {}
