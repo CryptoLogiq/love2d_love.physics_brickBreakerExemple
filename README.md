@@ -94,7 +94,7 @@ function love.update(dt)
 end
 ```
 
-## Rendu Final du pojet Co^mplet :
+## Rendu Final du pojet Complet :
 ![Rendu Complet](https://i.gyazo.com/f8787c7d655a184027e3c06d7b6ef7f4.gif)
 
 -> plus d'infos sur le wiki de love2d : [Love2d Physics](https://love2d.org/wiki/love.physics_(Fran%C3%A7ais))
