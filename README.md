@@ -1,4 +1,4 @@
-# love2d_love.physics_brickBreakerrExemple
+# love2d_love.physics_brickBreakerExemple
 
 ### Comment ça marche love.physics dans LOVE2D ? 
 
@@ -36,7 +36,7 @@ les joints (généralement des points ) qui rassemblent plusieurs body entre eux
 
 1. creer le monde : 
 ```lua
- world = love.physics.newWorld(grravity_x, gravity_y, sleeping_bool)
+ world = love.physics.newWorld(gravity_x, gravity_y, sleeping_bool)
 ```
 2. creer un objet (ball par exemple) 
 ```lua
