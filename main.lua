@@ -13,7 +13,7 @@ function love.load()
   WallManager.load() -- load Walls body static (CCD)
   BallManager.load() -- load ball body dynamic
   PadManager.load() -- load pad body kinematic
-  BrickManager.load() -- load pad body kinematic
+  BrickManager.load() -- load brick body kinematic (change to dynamic when is break)
 end
 --
 
