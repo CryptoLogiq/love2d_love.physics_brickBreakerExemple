@@ -1,12 +1,12 @@
 
-require("Globals")
-require("Maths")
+require("globals")
+require("maths")
 
-WorldManager = require("WorldManager")
-BallManager = require("BallManager")
-PadManager = require("PadManager")
-BrickManager = require("BrickManager")
-WallManager = require("WallManager")
+WorldManager = require("worldmanager")
+BallManager = require("ballmanager")
+PadManager = require("padmanager")
+BrickManager = require("brickmanager")
+WallManager = require("wallmanager")
 
 function love.load()
   WorldManager.load() -- load world environnement (gravity, etc)
